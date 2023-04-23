@@ -1,7 +1,8 @@
-const API_KEY = "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"
+
+const API_KEY = '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'
 async function fetchData(){
     try {
-        const reaponse = await fetch('https://api.openai.com/v1/completions', {
+        const reaponse = await fetch('https://api.openai.com/v1/chat/completions', {
         method:"POST",
         headers: {
             Authorization:`Bearer ${API_KEY}`,
@@ -9,9 +10,8 @@ async function fetchData(){
         },
         body:JSON.stringify(
             {
-                model:'text-davinci-003',
-                prompt:"Hellow how are you doing today?",
-                max_tokens:7
+              "model": "gpt-3.5-turbo",
+              "messages": [{"role": "user", "content": "Hello!"}]
             }
         )
     });
